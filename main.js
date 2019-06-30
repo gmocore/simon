@@ -21,13 +21,15 @@ playButton.addEventListener('click', () => {
 
 // functions
 const colorPicker = function() {
-    simonsChoice.push(Math.floor(Math.random() * color.length))
-    console.log(simonsChoice);
+    // simonsChoice.push(Math.floor(Math.random() * color.length))
+    console.log('colorpicker ran');
+    return Math.floor(Math.random() * color.length)
 }
 
 const simonsColorPicks = () => {
-    simonsChoice.forEach(item => console.log(color[item].id))
-    simonsChoice.forEach(item => color[item].style.filter = 'opacity(0.5)')
+    simonsChoice.push(color[colorPicker()].id)
+    // simonsChoice.forEach(item => console.log(color[item].id))
+    // simonsChoice.forEach(item => color[item].style.filter = 'opacity(0.5)')
 }
 
 // const userColorPicks = () => {
@@ -35,7 +37,7 @@ const simonsColorPicks = () => {
 // }
 
 const playGame = () => {
-    colorPicker()  
+    // colorPicker() 
     simonsColorPicks()
 }
 
@@ -64,7 +66,3 @@ function compare(userChoice,simonsChoice){
    return result
    
  }
-
-
-
-
