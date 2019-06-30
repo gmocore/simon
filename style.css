@@ -3,14 +3,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.button-container {
+.pad-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 1000px;
 }
+
+
 
 .pad {
     width: 150px;
