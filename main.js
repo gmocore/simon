@@ -35,18 +35,25 @@ playButton.addEventListener('click', playGame)
 function simonsColorPicks() {
     randomNumber = Math.floor(Math.random() * color.length)
     simonsChoice.push(color[randomNumber].id)
-    flash()
+    flash(color[randomNumber].id)
+    console.log(color[randomNumber].id)
 }
 
-function flash() {
-    color[randomNumber].style.filter = 'opacity(0.5)'
+function flash(colorIndex) {
+    document.querySelector(`#${colorIndex}`).style.filter = 'opacity(0.5)'
     setTimeout(function() {
-        color[randomNumber].style.filter = 'opacity(1)'
+        document.querySelector(`#${colorIndex}`).style.filter = 'opacity(1)'
     }, 300)
+    // color[colorIndex].style.filter = 'opacity(0.5)'
+    // setTimeout(function() {
+    //     color[colorIndex].style.filter = 'opacity(1)'
+    // }, 300)
 }
 
 function usersColorPick() {
     userChoice.push(event.target.id)
+    flash(event.target.id)
+    console.log(event.target.id)
 }
 
 
