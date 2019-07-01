@@ -35,12 +35,21 @@ playButton.addEventListener('click', playGame)
 function simonsColorPicks() {
     randomNumber = Math.floor(Math.random() * color.length)
     simonsChoice.push(color[randomNumber].id)
+    flash()
+}
+
+function flash() {
     color[randomNumber].style.filter = 'opacity(0.5)'
+    setTimeout(function() {
+        color[randomNumber].style.filter = 'opacity(1)'
+    }, 300)
 }
 
 function usersColorPick() {
     userChoice.push(event.target.id)
 }
+
+
 
 function playGame() {
     simonsColorPicks()
