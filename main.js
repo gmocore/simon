@@ -1,28 +1,11 @@
-// Clicking Play Button will currently pick a color for simon and fade the pad
-// Clicking any of the pads will populate the userChoice array
-// Equality functionality works with logging arraysEqual(simonsChoice, userChoice) in the chrome terminal
-
-// TODO:  simsonsColorPicks()
-// 1.  Create an Interval to loop through simonsChoice array.
-// 2.  Change opacity of item in array
-// 3.  Change opacity of item in array back to original
-// 4.  Continue until end of array
-
-// TODO:  EqualityCheck
-//      Simon says green.  User clicks green.. we're good.
-//      Simon says green, blue, red, yellow. User clicks green..
-//          Our current checker will return false since one has 4 elements and the other only has 1 at this current state
-
-// TODO:  playGame()
-// 1. Activate simonsColorPicks
-// 2. Wait for return from userColorPick()
-// 3. If arraysEqual() returns true star over
+// Clicking Play Button will currently pick a color for simon and flash the pad
+// Clicking any of the pads will populate the userChoice array and flash the pad
 
 // Variables
 const color = document.querySelectorAll(".pad")
+const playButton = document.getElementById('play-button')
 const simonsChoice = []
 const userChoice = []
-const playButton = document.getElementById('play-button')
 
 // eventListener
 color.forEach(item => {
@@ -39,24 +22,18 @@ function simonsColorPicks() {
     console.log(color[randomNumber].id)
 }
 
-function flash(colorIndex) {
-    document.querySelector(`#${colorIndex}`).style.filter = 'opacity(0.5)'
-    setTimeout(function() {
-        document.querySelector(`#${colorIndex}`).style.filter = 'opacity(1)'
-    }, 300)
-    // color[colorIndex].style.filter = 'opacity(0.5)'
-    // setTimeout(function() {
-    //     color[colorIndex].style.filter = 'opacity(1)'
-    // }, 300)
-}
-
 function usersColorPick() {
     userChoice.push(event.target.id)
     flash(event.target.id)
     console.log(event.target.id)
 }
 
-
+function flash(colorIndex) {
+    document.querySelector(`#${colorIndex}`).style.filter = 'opacity(0.5)'
+    setTimeout(function() {
+        document.querySelector(`#${colorIndex}`).style.filter = 'opacity(1)'
+    }, 300)
+}
 
 function playGame() {
     simonsColorPicks()
