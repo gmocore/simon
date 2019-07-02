@@ -12,33 +12,42 @@
 8. You will get an error saying it doesn't exist on the origin.  Copy/Paste the command it tells you to do
 9. Contact Dan and we can work on the pull request
 
-Simon Game Pseudo
+## Simon Game Pseudo
+
 - Click PlayGame()
     - Simon Picks a random color
-        - Simon saves this pick to his list
+        - Simon adds this pick to his list
         - Simons list flashes
     - User picks a color
         - That color flashes
-        - If the users color is the same as Simons color
-            - Simons List flashes
+        - If the users color is the same as Simons first item in the list and it IS the end of simons list
             - Simon picks a new random color
-            - Simon adds this new color to his list
-            - Simons list flashes
-                - User picks a color
+                - Simon adds this pick to his list
+                - Simons list flashes (which is now two items)
+            - User picks a color
                 - That color flashes
-                    - If the users color is the same as simons first item in the list
-                        - Let user pick a second color
-                        - User picks a second color
-                            - If the users second color is the same as simons second item in the list
-                                - Simon picks a new random color
-                                - Simon adds this new color to his list
-                                - Simons list flashes
-                                  - User picks a color
-                                  - That color flashes
-                                    - If the users color is the same as simons first item in the list
-                                      - Let user pick a second color
-                                      - User picks a second color
-                                      - ... and continues... I think we can figure the code now
-        - If users color is not the same as simons color
+                - If the users color is the same as Simons first item in the list and it is NOT the end of simons list
+                    - User picks a color
+                        - That color flashes
+                        - If the users color is the same as Simons second item in the list and it IS the end of simons list
+                            - Simon picks a new random color
+                                - Simon adds this pick to his list
+                                - Simons list flashes (which is now three items)
+                            - User picks a color
+                                - That color flashes
+                                - If the users color is the same as Simons first item in the list and its not the end of simons list
+                                    - User picks a color
+                                        - That color flashes
+                                        - If the users color is the same as Simons second item in the list and its not the end of simons list
+                                            - User picks a color
+                                                - That color flashes
+                                                - If the users color is the same as Simons third item in the list and it IS the end of simons list
+                                                    - Simon picks a new random color
+                                                        - Simon adds this pick to his list
+                                                        - Simons list flashes (which is now four items)
+                                                    - User picks a color
+                                                        - That color flashes
+        - If users color is ever NOT the same
+            - FLASH background 
             - Simons list is cleared
             - PlayGame()
