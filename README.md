@@ -20,34 +20,34 @@
         - Simons list flashes
     - User picks a color
         - That color flashes
-        - If the users color is the same as Simons first item in the list and it IS the end of simons list
-            - Simon picks a new random color
-                - Simon adds this pick to his list
-                - Simons list flashes (which is now two items)
-            - User picks a color
-                - That color flashes
-                - If the users color is the same as Simons first item in the list and it is NOT the end of simons list
-                    - User picks a color
-                        - That color flashes
-                        - If the users color is the same as Simons second item in the list and it IS the end of simons list
-                            - Simon picks a new random color
-                                - Simon adds this pick to his list
-                                - Simons list flashes (which is now three items)
-                            - User picks a color
-                                - That color flashes
-                                - If the users color is the same as Simons first item in the list and its not the end of simons list
-                                    - User picks a color
-                                        - That color flashes
-                                        - If the users color is the same as Simons second item in the list and its not the end of simons list
-                                            - User picks a color
-                                                - That color flashes
-                                                - If the users color is the same as Simons third item in the list and it IS the end of simons list
-                                                    - Simon picks a new random color
-                                                        - Simon adds this pick to his list
-                                                        - Simons list flashes (which is now four items)
-                                                    - User picks a color
-                                                        - That color flashes
-        - If users color is ever NOT the same
-            - FLASH background 
-            - Simons list is cleared
-            - PlayGame()
+            - If the users color is the same as Simons first item in the list and it IS the end of simons list
+                - Simon picks a new random color
+                    - Simon adds this pick to his list
+                    - Simons list flashes (which is now two items)
+                - User picks a color
+                    - That color flashes
+            - If the users color is the same as Simons first item in the list and it is NOT the end of simons list
+                - User picks a color
+                    - That color flashes
+            - If the users color is the same as Simons second item in the list and it IS the end of simons list
+                - Simon picks a new random color
+                    - Simon adds this pick to his list
+                    - Simons list flashes (which is now three items)
+                - User picks a color
+                    - That color flashes
+            - If the users color is the same as Simons first item in the list and it is NOT the end of simons list
+                - User picks a color
+                    - That color flashes
+            - If the users color is the same as Simons second item in the list and it is NOT the end of simons list
+                - User picks a color
+                    - That color flashes
+            - If the users color is the same as Simons third item in the list and it IS the end of simons list
+                - Simon picks a new random color
+                    - Simon adds this pick to his list
+                    - Simons list flashes (which is now four items)
+                - User picks a color
+                    - That color flashes.... I think we might be able to turn this into code now?
+            - If users color is ever NOT the same
+                - FLASH background 
+                - Simons list is cleared
+                - PlayGame()
