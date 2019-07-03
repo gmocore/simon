@@ -12,42 +12,8 @@
 8. You will get an error saying it doesn't exist on the origin.  Copy/Paste the command it tells you to do
 9. Contact Dan and we can work on the pull request
 
-## Simon Game Pseudo
+## Took some help from FreeCodeCamp
 
-- Click PlayGame()
-    - Simon Picks a random color
-        - Simon adds this pick to his list
-        - Simons list flashes
-    - User picks a color
-        - That color flashes
-            - If the users color is the same as Simons first item in the list and it IS the end of simons list
-                - Simon picks a new random color
-                    - Simon adds this pick to his list
-                    - Simons list flashes (which is now two items)
-                - User picks a color
-                    - That color flashes
-            - If the users color is the same as Simons first item in the list and it is NOT the end of simons list
-                - User picks a color
-                    - That color flashes
-            - If the users color is the same as Simons second item in the list and it IS the end of simons list
-                - Simon picks a new random color
-                    - Simon adds this pick to his list
-                    - Simons list flashes (which is now three items)
-                - User picks a color
-                    - That color flashes
-            - If the users color is the same as Simons first item in the list and it is NOT the end of simons list
-                - User picks a color
-                    - That color flashes
-            - If the users color is the same as Simons second item in the list and it is NOT the end of simons list
-                - User picks a color
-                    - That color flashes
-            - If the users color is the same as Simons third item in the list and it IS the end of simons list
-                - Simon picks a new random color
-                    - Simon adds this pick to his list
-                    - Simons list flashes (which is now four items)
-                - User picks a color
-                    - That color flashes.... I think we might be able to turn this into code now?
-            - If users color is ever NOT the same
-                - FLASH background 
-                - Simons list is cleared
-                - PlayGame()
+After some struggling I researched online and came across this video.  I took what I learned from this video and incorporated some of the functionality to this code.
+
+[FreeCodeCampSimonGame](https://www.youtube.com/watch?v=n_ec3eowFLQ)

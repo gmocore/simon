@@ -1,59 +1,132 @@
-// Clicking Play Button will currently pick a color for simon and flash the pad
-// Clicking any of the pads will populate the userChoice array and flash the pad
+let flash;
+let intervalId;
+let compTurn;
+let turn;
+let good;
+let simonsChoice = [];
+let usersChoice = [];
+const colors = ['blue', 'green', 'yellow', 'red'];
+const playButton = document.querySelector('#play-button');
+const blue = document.querySelector('#blue');
+const green = document.querySelector('#green');
+const yellow = document.querySelector('#yellow');
+const red = document.querySelector('#red');
 
-// Variables
-const color = document.querySelectorAll(".pad")
-const playButton = document.getElementById('play-button')
-const simonsChoice = []
-const userChoice = []
-
-// eventListener
-color.forEach(item => {
-    item.addEventListener('click', usersColorPick)
+playButton.addEventListener('click', (event) => {
+    playGame()
 })
 
-playButton.addEventListener('click', playGame)
-
-// functions
-function simonsColorPicks() {
-    randomNumber = Math.floor(Math.random() * color.length)
-    simonsChoice.push(color[randomNumber].id)
-    flash(color[randomNumber].id)
-    console.log(color[randomNumber].id)
-}
-
-function usersColorPick() {
-    userChoice.push(event.target.id)
-    flash(event.target.id)
-    console.log(event.target.id)
-}
-
-function flash(colorIndex) {
-    document.querySelector(`#${colorIndex}`).style.filter = 'opacity(0.5)'
-    setTimeout(function() {
-        document.querySelector(`#${colorIndex}`).style.filter = 'opacity(1)'
-    }, 300)
-}
-
 function playGame() {
-    simonsColorPicks()
+    flash = 0;
+    compTurn = true
+    good = true;
+    simonsChoice = []
+    usersChoice = [];
+    turn = 1
+    intervalId = setInterval(simonsColorPicks, 800);
 }
 
-
-// This Compare Function works
-// https://stackoverflow.com/questions/3115982/how-to-check-if-two-arrays-are-equal-with-javascript
-function arraysEqual(a, b) {
-    if (a === b) return true;
-    if (a == null || b == null) return false;
-    if (a.length != b.length) return false;
-  
-    // If you don't care about the order of the elements inside
-    // the array, you should sort both arrays here.
-    // Please note that calling sort on an array will modify that array.
-    // you might want to clone your array first.
-  
-    for (var i = 0; i < a.length; ++i) {
-      if (a[i] !== b[i]) return false;
+function simonsColorPicks() {
+    if (flash == turn) {
+        clearInterval(intervalId);
+        compTurn = false;
+        clearColor();
+      }
+    if (compTurn) {
+        clearColor()
+        randomNumber = Math.floor(Math.random() * 4)
+        simonsChoice.push(colors[randomNumber])
+        console.log(randomNumber)
+        console.log(colors[randomNumber])
+        setTimeout(() => {
+            if (simonsChoice[flash] == 'blue') changeBlue();
+            if (simonsChoice[flash] == 'green') changeGreen();
+            if (simonsChoice[flash] == 'yellow') changeYellow();
+            if (simonsChoice[flash] == 'red') changeRed();
+            flash++;
+          }, 200);
     }
-    return true;
-  }
+}
+
+function changeBlue() {
+    blue.style.filter = 'opacity(0.1)'
+}
+function changeGreen() {
+    green.style.filter = 'opacity(0.1)'
+}
+function changeYellow() {
+    yellow.style.filter = 'opacity(0.1)'
+}
+function changeRed() {
+    red.style.filter = 'opacity(0.1)'
+}
+
+function clearColor() {
+    blue.style.filter = 'opacity(1)'
+    green.style.filter = 'opacity(1)'
+    yellow.style.filter = 'opacity(1)'
+    red.style.filter = 'opacity(1)'
+}
+
+function flashColor() {
+    blue.style.filter = 'opacity(.1)'
+    green.style.filter = 'opacity(.1)'
+    yellow.style.filter = 'opacity(.1)'
+    red.style.filter = 'opacity(.1)'
+}
+
+blue.addEventListener('click', (event) => {
+    usersChoice.push(event.target.id)
+    check()
+    changeBlue()
+    setTimeout(() => {
+        clearColor()
+    }, 300)
+})
+green.addEventListener('click', (event) => {
+    usersChoice.push(event.target.id)
+    check()
+    changeGreen()
+    setTimeout(() => {
+        clearColor()
+    }, 300)
+})
+yellow.addEventListener('click', (event) => {
+    usersChoice.push(event.target.id)
+    check()
+    changeYellow()
+    setTimeout(() => {
+        clearColor()
+    }, 300)
+})
+red.addEventListener('click', (event) => {
+    usersChoice.push(event.target.id)
+    check()
+    changeRed()
+    setTimeout(() => {
+        clearColor()
+    }, 300)
+})
+
+function check() {
+    if (usersChoice[usersChoice.length - 1] !== simonsChoice[usersChoice.length - 1]) {
+        good = false;
+    }
+
+    if (good == false) {
+        flashColor();
+        setTimeout(() => {
+            clearColor()
+            playGame()
+        }, 800);
+    };
+
+    if (turn == usersChoice.length && good) {
+        turn++;
+        usersChoice = []
+        compTurn = true;
+        flash = 0;
+        intervalId = setInterval(simonsColorPicks, 800);
+    }
+
+}
