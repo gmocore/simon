@@ -2,7 +2,7 @@
 
 ## If you want to try working on the code
 
-1. We're currently working on the JS functionality.  Read the comments on the top of the JS file before working
+1. JS functionality is almost complete.  Need to fix issue with users clicking while computer is picking bug.
 2. Once you have an idea of what section you want to work on.  Please plan it out on a note or scratch paper
 3. Create a new branch: `git checkout -b yourName-nameOfYourPlan`
 4. Once your plan is complete and working it is time to commit and push
