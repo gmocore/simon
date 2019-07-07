@@ -3,6 +3,8 @@ let intervalId;
 let compTurn;
 let turn;
 let good;
+let playButtonClickable = true;
+let userCanClick = false;
 let simonsChoice = [];
 let usersChoice = [];
 const colors = ['blue', 'green', 'yellow', 'red'];
@@ -13,7 +15,10 @@ const yellow = document.querySelector('#yellow');
 const red = document.querySelector('#red');
 
 playButton.addEventListener('click', (event) => {
-    playGame()
+    if (playButtonClickable) {
+        playButtonClickable = false;
+        playGame()
+    }
 })
 
 function playGame() {
@@ -31,6 +36,7 @@ function simonsColorPicks() {
         clearInterval(intervalId);
         compTurn = false;
         clearColor();
+        userCanClick = true;
       }
     if (compTurn) {
         clearColor()
@@ -76,36 +82,44 @@ function flashColor() {
 }
 
 blue.addEventListener('click', (event) => {
-    usersChoice.push(event.target.id)
-    check()
-    changeBlue()
-    setTimeout(() => {
-        clearColor()
-    }, 300)
+    if (userCanClick) {
+        usersChoice.push(event.target.id)
+        check()
+        changeBlue()
+        setTimeout(() => {
+            clearColor()
+        }, 300)
+    }
 })
 green.addEventListener('click', (event) => {
-    usersChoice.push(event.target.id)
-    check()
-    changeGreen()
-    setTimeout(() => {
-        clearColor()
-    }, 300)
+    if (userCanClick) {
+        usersChoice.push(event.target.id)
+        check()
+        changeGreen()
+        setTimeout(() => {
+            clearColor()
+        }, 300)
+    }
 })
 yellow.addEventListener('click', (event) => {
-    usersChoice.push(event.target.id)
-    check()
-    changeYellow()
-    setTimeout(() => {
-        clearColor()
-    }, 300)
+    if (userCanClick) {
+        usersChoice.push(event.target.id)
+        check()
+        changeYellow()
+        setTimeout(() => {
+            clearColor()
+        }, 300)
+    }
 })
 red.addEventListener('click', (event) => {
-    usersChoice.push(event.target.id)
-    check()
-    changeRed()
-    setTimeout(() => {
-        clearColor()
-    }, 300)
+    if (userCanClick) {
+        usersChoice.push(event.target.id)
+        check()
+        changeRed()
+        setTimeout(() => {
+            clearColor()
+        }, 300)
+    }
 })
 
 function check() {
@@ -115,13 +129,15 @@ function check() {
 
     if (good == false) {
         flashColor();
-        setTimeout(() => {
-            clearColor()
-            playGame()
-        }, 800);
+        // setTimeout(() => {
+        //     clearColor()
+        //     playGame()
+        // }, 800);
+        playButtonClickable = true;
     };
 
     if (turn == usersChoice.length && good) {
+        userCanClick = false
         turn++;
         usersChoice = []
         compTurn = true;
