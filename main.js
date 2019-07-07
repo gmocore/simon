@@ -13,6 +13,7 @@ const blue = document.querySelector('#blue');
 const green = document.querySelector('#green');
 const yellow = document.querySelector('#yellow');
 const red = document.querySelector('#red');
+const currentLevel = document.querySelector('#current-level')
 
 playButton.addEventListener('click', (event) => {
     if (playButtonClickable) {
@@ -23,11 +24,12 @@ playButton.addEventListener('click', (event) => {
 
 function playGame() {
     flash = 0;
-    compTurn = true
+    compTurn = true;
     good = true;
-    simonsChoice = []
+    simonsChoice = [];
     usersChoice = [];
-    turn = 1
+    turn = 1;
+    currentLevel.innerHTML = `LEVEL = ${turn}`;
     intervalId = setInterval(simonsColorPicks, 800);
 }
 
@@ -133,12 +135,14 @@ function check() {
         //     clearColor()
         //     playGame()
         // }, 800);
+        currentLevel.innerHTML = `LEVEL = 0`;
         playButtonClickable = true;
     };
 
     if (turn == usersChoice.length && good) {
         userCanClick = false
         turn++;
+        currentLevel.innerHTML = `LEVEL = ${turn}`;        
         usersChoice = []
         compTurn = true;
         flash = 0;
