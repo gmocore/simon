@@ -44,8 +44,6 @@ function simonsColorPicks() {
         clearColor()
         randomNumber = Math.floor(Math.random() * 4)
         simonsChoice.push(colors[randomNumber])
-        console.log(randomNumber)
-        console.log(colors[randomNumber])
         setTimeout(() => {
             if (simonsChoice[flash] == 'blue') changeBlue();
             if (simonsChoice[flash] == 'green') changeGreen();
