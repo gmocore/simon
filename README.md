@@ -21,6 +21,6 @@ After some struggling I researched online and came across this video.  I took wh
 
 ## Styling Stretch Goals
 
-[] MPC style for mobile
-[x] Regular Simon looking game for desktop
-[] Add Sound
+- [ ] MPC style for mobile
+- [x] Regular Simon looking game for desktop
+- [ ] Add Sound
