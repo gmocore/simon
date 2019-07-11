@@ -15,7 +15,7 @@ const yellow = document.querySelector('#yellow');
 const red = document.querySelector('#red');
 const currentLevel = document.querySelector('#current-level')
 
-playButton.addEventListener('click', (event) => {
+playButton.addEventListener('click', () => {
     if (playButtonClickable) {
         playButtonClickable = false;
         playGame()
@@ -129,10 +129,10 @@ function check() {
 
     if (good == false) {
         flashColor();
-        // setTimeout(() => {
-        //     clearColor()
-        //     playGame()
-        // }, 800);
+        setTimeout(() => {
+            clearColor()
+            playGame()
+        }, 800);
         currentLevel.innerHTML = `LEVEL = 0`;
         playButtonClickable = true;
     };
